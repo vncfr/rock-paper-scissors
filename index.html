@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
 </head>
 <script>
     function getComputerChoice() {
@@ -27,7 +27,6 @@
         while (playerPoints < 3 && computerPoints < 3) {
             let playerSelection = prompt('Rock, Paper or Scissors?');
             playerSelection = playerSelection.toLowerCase();
-            console.log(playerSelection);
             let result = playSingleRound(playerSelection, getComputerChoice());
             console.log(result);
             if (result.includes('win')) {
@@ -38,6 +37,9 @@
             }
             console.log(`Player: ${playerPoints} | Computer: ${computerPoints}`)
         }
+
+        return playerPoints == 3 ? 'You won the game!' : 'You lost the game.'
+
         function playSingleRound(playerSelection, computerSelection) {
             if (playerSelection == "rock") {
                 switch (computerSelection) {
