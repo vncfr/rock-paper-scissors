@@ -3,85 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
-<script>
-    function getComputerChoice() {
-        let choice = Math.floor(Math.random() * 3) + 1;
-        switch (choice) {
-            case 1:
-                return "Rock";
-                break;
-            case 2:
-                return "Paper";
-                break;
-            case 3:
-                return "Scissors";
-                break;
-        }
-    }
-
-    function game() {
-        let playerPoints = 0;
-        let computerPoints = 0;
-        while (playerPoints < 3 && computerPoints < 3) {
-            let playerSelection = prompt('Rock, Paper or Scissors?');
-            playerSelection = playerSelection.toLowerCase();
-            let result = playSingleRound(playerSelection, getComputerChoice());
-            console.log(result);
-            if (result.includes('win')) {
-                playerPoints += 1;
-            }
-            else if (result.includes('lose')) {
-                computerPoints += 1;
-            }
-            console.log(`Player: ${playerPoints} | Computer: ${computerPoints}`)
-        }
-
-        return playerPoints == 3 ? 'You won the game!' : 'You lost the game.'
-
-        function playSingleRound(playerSelection, computerSelection) {
-            if (playerSelection == "rock") {
-                switch (computerSelection) {
-                    case "Rock":
-                        return "It's a tie! Rock equals rock."
-                        break;
-                    case "Paper":
-                        return "You lose! Paper beats rock."
-                        break;
-                    case "Scissors":
-                        return "You win! Rock beats scissors."
-                }
-            }
-            else if (playerSelection == "paper") {
-                switch (computerSelection) {
-                    case "Rock":
-                        return "You win! Paper beats rock."
-                        break;
-                    case "Paper":
-                        return "It's a tie! Paper equals paper."
-                        break;
-                    case "Scissors":
-                        return "You lose! Scissors beats paper."
-                }
-            }
-            else if (playerSelection == "scissors") {
-                switch (computerSelection) {
-                    case "Rock":
-                        return "You lose! Rock beats scissors."
-                        break;
-                    case "Paper":
-                        return "You win! Scissors beats paper."
-                        break;
-                    case "Scissors":
-                        return "It's a tie! Scissors equals scissors."
-                }
-            }
-        }
-    }
-    
-</script>
 <body>
-    
+    <div class="choice-buttons">
+        <button id="rock" class="choice-button">Rock</button>
+        <button id="paper" class="choice-button">Paper</button>
+        <button id="scissors" class="choice-button">Scissors</button>
+    </div>
+    <div id="results-section" style="visibility: hidden;">
+        <h1>Results</h1>
+    </div>
 </body>
 </html>
