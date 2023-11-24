@@ -1,6 +1,3 @@
-const rockBtn = document.querySelector("#rock");
-const paperBtn = document.querySelector("#paper");
-const scissorsBtn = document.querySelector("#scissors");
 const resultsSection = document.querySelector("#results-section");
 const roundResult = document.createElement("p");
 const choiceBtn = document.querySelectorAll(".choice-button");
